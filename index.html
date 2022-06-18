@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-32x32.png">
+  <title>Calculator app</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <script src="assets/js/theme.js" defer></script>
+  <script src="assets/js/main.js" defer></script>
+</head>
+<body>
+    <main id="app">
+        <header class="header-cal">
+            <nav class="navbar">
+                <h1 class="title">calc</h1>
+                <div class="theme-container">
+                    <span class="theme-text">THEME</span>
+                    <span class="toggle-theme">
+                        <span class="num-theme">
+                            <span>1</span>
+                            <span>2</span>
+                            <span>3</span>
+                        </span>
+                        <span class="toggle">
+                            <input type="checkbox" class="inputCheck" id="one">
+                            <input type="checkbox" class="inputCheck" id="two">
+                            <input type="checkbox" class="inputCheck" id="tree">
+                            <span class="checked"></span>
+                        </span>
+                    </span>
+                </div>
+            </nav>
+        </header>
+
+        <section class="calc">
+            <form class="formCal" id="formCal">
+                <header class="result-container">
+                    <input type="text" id="inputCal" class="inputCal">
+                </header>
+
+                <article class="keyboard-cal">
+                    <span class="btn-cal" data-btn="7">7</span>
+                    <span class="btn-cal" data-btn="8">8</span>
+                    <span class="btn-cal" data-btn="9">9</span>
+                    <span class="btn-cal"  data-btn="delete" id="delete">DEL</span>
+                    <span class="btn-cal" data-btn="4">4</span>
+                    <span class="btn-cal" data-btn="5">5</span>
+                    <span class="btn-cal" data-btn="6">6</span>
+                    <span class="op" data-btn="+" id="addition">+</span>
+                    <span class="btn-cal" data-btn="1">1</span>
+                    <span class="btn-cal" data-btn="2">2</span>
+                    <span class="btn-cal" data-btn="3">3</span>
+                    <span class="op" data-btn="-" id="subtraction"> - </span>
+                    <span class="btn-cal" data-btn=",">.</span>
+                    <span class="btn-cal" data-btn="0">0</span>
+                    <span class="op" data-btn="/" id="division">/</span>
+                    <span class="op" data-btn="*" id="multiplication">x</span>
+                    <button type="reset" class="btn-cal" data-btn="reset" id="reset">RESET</button>
+                    <button type="submit" class="btn-cal" data-btn="result" id="result"> = </button>
+                </article>
+            </form>
+        </section>
+    </main>
+</body>
+</html>
