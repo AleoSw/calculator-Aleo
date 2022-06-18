@@ -1,0 +1,404 @@
+@import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+body.theme-one {
+    /* Backgrounds*/
+    --main-background: hsl(222, 26%, 31%);
+    --toggle-background: hsl(223, 31%, 20%);
+    --keypad-background: hsl(223, 31%, 20%);
+    --screen-background: hsl(224, 36%, 15%);
+    /* Keys */
+    --key-background-op: hsl(225, 21%, 49%);
+    --key-shadow-op: hsl(224, 28%, 35%);
+    --key-background-toggle: hsl(6, 63%, 50%);
+    --key-shadow-toggle: hsl(6, 70%, 34%);
+    --key-background: hsl(30, 25%, 89%);
+    --key-shadow: hsl(28, 16%, 65%);
+    /* Text */
+    --title-cal: hsl(0, 0%, 100%);
+    --input-color: hsl(0, 0%, 100%);
+    --text-color: hsl(221, 14%, 31%);
+    --result-text: hsl(0, 0%, 100%);
+    --white-text: hsl(0, 0%, 100%);
+    --font-size: 32px;
+    --bold: 700;
+}
+body.theme-two {
+    /* Backgrounds */
+    --main-background: hsl(0, 0%, 90%);
+    --toggle-background: hsl(0, 5%, 81%);
+    --keypad-background: hsl(0, 5%, 81%);
+    --screen-background: hsl(0, 0%, 93%);
+    /* Keys */
+    --key-background-op: hsl(185, 42%, 37%);;
+    --key-shadow-op: hsl(185, 58%, 25%);
+    --key-background-toggle: hsl(25, 98%, 40%);
+    --key-shadow-toggle: hsl(25, 99%, 27%);
+    --key-background: hsl(45, 7%, 89%);
+    --key-shadow: hsl(35, 11%, 61%);
+    /* Text */
+    --title-cal: hsl(60, 10%, 19%);
+    --input-color: hsl(60, 10%, 19%);
+    --text-color: hsl(60, 10%, 19%);
+    --result-text: hsl(0, 0%, 100%);
+    --white-text: hsl(0, 0%, 100%);
+    --font-size: 32px;
+    --bold: 700;
+}
+body.theme-tree {
+    /* Backgrounds */
+    --main-background: hsl(268, 75%, 9%);
+    --toggle-background: hsl(268, 71%, 12%);
+    --keypad-background: hsl(268, 71%, 12%);
+    --screen-background: hsl(268, 71%, 12%);
+    /* Keys */
+    --key-background-op: hsl(281, 89%, 26%);
+    --key-shadow-op: hsl(285, 91%, 52%);
+    --key-background-toggle: hsl(176, 100%, 44%);
+    --key-shadow-toggle: hsl(177, 92%, 70%);
+    --key-background: hsl(268, 47%, 21%);
+    --key-shadow: hsl(290, 70%, 36%);
+    /* Text */
+    --title-cal: hsl(52, 100%, 62%);
+    --input-color: hsl(52, 100%, 62%);
+    --text-color: hsl(52, 100%, 62%);
+    --result-text: hsl(198, 20%, 13%);
+    --white-text: hsl(0, 0%, 100%);
+    --font-size: 32px;
+    --bold: 700;
+}
+
+a {text-decoration: none;}input, button {border: none;outline: none;}img, video {max-width: 100%;height: auto;}ul > li {list-style: none;}
+
+/* ============= APP ============= */
+body {
+    width: 100%;
+    height: 100vh;
+    display: grid;
+    place-content: center;
+    background: var(--main-background);
+    font-family: 'League Spartan', sans-serif;
+    overflow: hidden;
+}
+
+#app {
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: repeat(3, 104px 1fr);
+    width: 100vw;
+    max-width: 375px;
+    height: 667px;
+    padding: 0 1.5rem;
+}
+
+.calc {
+    width: 100%;
+    height: calc(667px - 104px);
+}
+
+.formCal {
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows:  112px 420px;
+}
+
+.header-cal {
+    width: 100%;
+    height: 100%;
+}
+
+.navbar {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.title {
+    color: var(--title-cal);
+    font-size: var(--font-size);
+    font-weight: bold;
+}
+
+.theme-container {
+    display: flex;
+    align-items: center;
+    column-gap: 1.75rem;
+}
+
+.theme-text {
+    color: var(--title-cal);
+    margin-top: 1.8rem;
+}
+
+.toggle-theme {
+    display: flex;
+    flex-direction: column;
+    row-gap: 0.5rem;
+}
+
+.num-theme {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-inline: 0.5rem;
+    color: var(--title-cal);
+}
+
+.toggle {
+    position: relative;
+    width: 71px;
+    height: 26px;
+    background-color: var(--toggle-background);
+    display: grid; 
+    grid-template-columns: repeat(3, 1fr);
+    border-radius: 12px;
+}
+
+.toggle > input[type="checkbox"] {
+    appearance: none;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+}
+
+.checked {
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    width: 16px;
+    height: 16px;
+    background-color: var(--key-background-toggle);
+    border-radius: 100%;
+    cursor: pointer;
+    transition: .4s;
+}
+
+.inputCal {
+    width: 100%;
+    height: 88px;
+    background-color: var(--screen-background);
+    color: var(--input-color);
+    text-align: right;
+    font-family: 'League Spartan', sans-serif;
+    font-size: 45px;
+    font-weight: var(--bold);
+    border-radius: 10px;
+    padding-right: 1.625rem;
+}
+
+.keyboard-cal {
+    background-color: var(--keypad-background);
+    padding: 1.5rem;
+    border-radius: 10px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    column-gap: 0.813rem;
+    row-gap: 0.813rem;
+}
+
+.btn-cal {
+    display: grid;
+    place-content: center;
+    padding-top: 5px;
+    width: 100%;
+    height: 60px;
+    color: var(--text-color);
+    font-size: var(--font-size);
+    font-weight: bold;
+    background-color: var(--key-background);
+    border-radius: 5px;
+    border-bottom: 4px solid var(--key-shadow);
+    cursor: pointer;
+}
+
+.op {
+    display: grid;
+    place-content: center;
+    padding-top: 5px;
+    width: 100%;
+    height: 60px;
+    color: var(--text-color);
+    font-size: var(--font-size);
+    font-weight: bold;
+    background-color: var(--key-background);
+    border-radius: 5px;
+    border-bottom: 4px solid var(--key-shadow);
+    cursor: pointer;
+}
+
+#reset {
+    grid-column: 1/3;
+}
+
+#result {
+    grid-column: 3/5;
+    color: var(--result-text);
+    background-color: var(--key-background-toggle);
+    border-bottom: 4px solid var(--key-shadow-toggle);
+}
+
+#reset, #result {
+    height: 66px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+#reset, #delete {
+    font-size: 20px;
+    color: var(--white-text);
+    background-color: var(--key-background-op);
+    border-bottom: 4px solid var(--key-shadow-op);
+}
+
+/* ===================== Media Queries ====================== */
+
+@media screen and (min-width: 576px) {
+    #app {
+        max-width: 540px;
+        height: 736px;
+    }
+
+    .calc {
+        height: calc(736px - 104px);
+    }
+    
+    .formCal {
+        grid-template-rows: 152px 480px;
+    }
+
+    .inputCal {
+        height: 128px;
+    }
+
+    .keyboard-cal {
+        padding: 2rem 1.875rem;
+        column-gap: 1.563rem;
+        row-gap: 1.5rem;
+    }
+
+    .btn-cal {
+        border-radius: 10px;
+    }
+
+    .op {
+        border-radius: 10px;
+    }
+
+    #reset, #delete {
+        font-size: 22px;
+    }
+
+    @media screen and (max-height: 670px) {
+
+        #app {
+            max-width: 375px;
+            height: 667px;
+        }
+    
+        .calc {
+            height: calc(667px - 104px);
+        }
+        
+        .formCal {
+            grid-template-rows:  112px 420px;
+        }
+    
+        .inputCal {
+            height: 88px;
+        }
+    
+        .keyboard-cal {
+            padding: 1.5rem;
+            column-gap: 0.813rem;
+            row-gap: 0.813rem;
+        }
+    
+        .btn-cal {
+            border-radius: 5px;
+        }
+
+        .op {
+            border-radius: 5px;
+        }
+    
+        #reset, #delete {
+            font-size: 20px;
+        }
+    }
+
+    @media screen and (max-height: 600px) {
+        body {
+            height: auto;
+            overflow: auto;
+        }
+    }
+
+}
+
+@media (prefers-color-scheme: dark) {
+        :root {
+        /* Backgrounds*/
+        --main-background: hsl(222, 26%, 31%);
+        --toggle-background: hsl(223, 31%, 20%);
+        --keypad-background: hsl(223, 31%, 20%);
+        --screen-background: hsl(224, 36%, 15%);
+        /* Keys */
+        --key-background-op: hsl(225, 21%, 49%);
+        --key-shadow-op: hsl(224, 28%, 35%);
+        --key-background-toggle: hsl(6, 63%, 50%);
+        --key-shadow-toggle: hsl(6, 70%, 34%);
+        --key-background: hsl(30, 25%, 89%);
+        --key-shadow: hsl(28, 16%, 65%);
+        /* Text */
+        --title-cal: hsl(0, 0%, 100%);
+        --input-color: hsl(0, 0%, 100%);
+        --text-color: hsl(221, 14%, 31%);
+        --result-text: hsl(0, 0%, 100%);
+        --white-text: hsl(0, 0%, 100%);
+        --font-size: 32px;
+        --bold: 700;
+        }
+
+        .checked {
+            left: 5px;
+        }
+}
+
+@media (prefers-color-scheme: light) {
+    :root {
+        /* Backgrounds */
+        --main-background: hsl(0, 0%, 90%);
+        --toggle-background: hsl(0, 5%, 81%);
+        --keypad-background: hsl(0, 5%, 81%);
+        --screen-background: hsl(0, 0%, 93%);
+        /* Keys */
+        --key-background-op: hsl(185, 42%, 37%);;
+        --key-shadow-op: hsl(185, 58%, 25%);
+        --key-background-toggle: hsl(25, 98%, 40%);
+        --key-shadow-toggle: hsl(25, 99%, 27%);
+        --key-background: hsl(45, 7%, 89%);
+        --key-shadow: hsl(35, 11%, 61%);
+        /* Text */
+        --title-cal: hsl(60, 10%, 19%);
+        --input-color: hsl(60, 10%, 19%);
+        --text-color: hsl(60, 10%, 19%);
+        --result-text: hsl(0, 0%, 100%);
+        --white-text: hsl(0, 0%, 100%);
+        --font-size: 32px;
+        --bold: 700;
+    }
+
+    .checked {
+        left: 27px;
+    }
+}
